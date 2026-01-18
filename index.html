@@ -279,7 +279,7 @@
 
     function fixTxt(s) {
         if(!s) return "";
-        return s.replace(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, c => ({'ą':'a','ć':'c','ę':'e','ł':'l','ń':'n','ó':'o','ś':'s','ź':'z','ż':'z','Ą':'A','Ć':'C','Ę':'E','Ł':'L','Ń':'N','Ó':'O','Ś':'S','Ź':'Z','Ż':'Z'}[c]));
+        return s.replace(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, c => ({'ą':'a','ć':'c','ę':'e','ł':'l','ń':'n','ó':'o','ś':'s','ź':'z','ż':'z','Ą':'A','Ć':'C','Ę':'E','Ł':'L','Ń':'N','Ó':'O','Ś':'S','Ź':'Z','??':'Z'}[c]));
     }
 
     document.getElementById('today-info').innerText = fixTxt(new Date().toLocaleDateString('pl-PL', { weekday: 'long', day: 'numeric', month: 'long' }));
@@ -380,9 +380,8 @@
             const d = document.createElement('div');
             d.className = 'card';
             if(item.isV) {
-                // Zmieniono na youtube-nocookie.com dla obejścia błędu 153 w plikach lokalnych
                 d.innerHTML = `<div class="video-box">
-                    <iframe src="https://www.youtube-nocookie.com/embed/${item.vid}" 
+                    <iframe src="https://www.youtube.com/embed/${item.vid}" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen></iframe>
                 </div>
